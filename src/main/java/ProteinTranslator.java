@@ -1,16 +1,15 @@
-import java.util.List;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class ProteinTranslator {
   public static final int PROTEIN_LENGTH = 3;
-	public static HashMap<String, String> codonToProtein = new HashMap<String, String> ();
-	static {
-		codonToProtein.put("AUG", "Methionine");
-		codonToProtein.put("UUU", "Phenylalanine");
-		codonToProtein.put("UUC", "Phenylalanine");
-		codonToProtein.put("UUA", "Leucine");
-		codonToProtein.put("UUG", "Leucine");
+  public static HashMap<String, String> codonToProtein = new HashMap<String, String> ();
+  static {
+    codonToProtein.put("AUG", "Methionine");
+    codonToProtein.put("UUU", "Phenylalanine");
+    codonToProtein.put("UUC", "Phenylalanine");
+    codonToProtein.put("UUA", "Leucine");
+    codonToProtein.put("UUG", "Leucine");
     codonToProtein.put("UCU", "Serine");
     codonToProtein.put("UCC", "Serine");
     codonToProtein.put("UCA", "Serine");
@@ -20,11 +19,10 @@ public class ProteinTranslator {
     codonToProtein.put("UGU", "Cysteine");
     codonToProtein.put("UGC", "Cysteine");
     codonToProtein.put("UGG", "Tryptophan");
-		codonToProtein.put("UAA", "STOP");
-		codonToProtein.put("UAG", "STOP");
-		codonToProtein.put("UGA", "STOP");
-
-	}
+    codonToProtein.put("UAA", "STOP");
+    codonToProtein.put("UAG", "STOP");
+    codonToProtein.put("UGA", "STOP");
+  }
 
   public List<String> translate(String rnaSequence) {
     List<String> proteinsList = new ArrayList<String>();
