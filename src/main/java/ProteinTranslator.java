@@ -1,8 +1,9 @@
 import java.util.ArrayList;
+import java.util.List;
 import java.util.HashMap;
 
 public class ProteinTranslator {
-  public static final int PROTEIN_LENGTH = 3;
+  public static final int CODON_LENGTH = 3;
   public static HashMap<String, String> codonToProtein = new HashMap<String, String> ();
   static {
     codonToProtein.put("AUG", "Methionine");
@@ -26,7 +27,7 @@ public class ProteinTranslator {
 
   public List<String> translate(String rnaSequence) {
     List<String> proteinsList = new ArrayList<String>();
-    for(int startIndex = 0, endIndex = PROTEIN_LENGTH; endIndex <= rnaSequence.length(); startIndex += PROTEIN_LENGTH, endIndex += PROTEIN_LENGTH) {
+    for(int startIndex = 0, endIndex = CODON_LENGTH; endIndex <= rnaSequence.length(); startIndex += CODON_LENGTH, endIndex += CODON_LENGTH) {
       String codon = rnaSequence.substring(startIndex, endIndex);
       String protein = codonToProtein.get(codon);
       try {
@@ -43,7 +44,7 @@ public class ProteinTranslator {
   }
 
   private void proteinCheck(String protein) throws UnsupportedOperationException {
-    if(protein == "STOP") {
+    if("STOP".equals(protein)) {
       throw new UnsupportedOperationException("Encoutered a STOP Codon");
     }
     if(protein == null) {
